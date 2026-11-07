@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LevelUp：无需登录，在自己的浏览器里开始成长。">
+  <title>Dashboard · LevelUp</title>
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/storage.js" defer></script>
+  <script src="js/tasks-model.js" defer></script>
+  <script src="js/journal-model.js" defer></script>
+  <script src="js/analytics-model.js" defer></script>
+  <script src="js/app.js" defer></script>
+  <script src="js/dashboard.js" defer></script>
+</head>
+<body data-page="dashboard" data-root=".">
+  <a class="skip-link" href="#main-content">跳转到主要内容</a>
+  <div id="sidebar-root"></div>
+  <div class="workspace">
+    <div id="header-root"></div>
+    <main id="main-content" tabindex="-1">
+      <section class="page-heading">
+        <div><p class="eyebrow">YOUR PERSONAL GROWTH SPACE</p><h1>每一步，都在升级<span class="accent">。</span></h1><p class="muted">把注意力留给自己，从今天的一小步开始。</p></div>
+        <span class="phase-badge"><span class="status-dot"></span> PHASE 05 · 成长统计</span>
+      </section>
+
+      <section class="hero panel" aria-labelledby="hero-title">
+        <div class="hero-copy"><span class="tag">HELLO, EXPLORER</span><h2 id="hero-title">你的成长，<br>由你自己定义。</h2><p>这里是属于你的安静空间。<br>不需要账号，只需要一个想要变好的开始。</p><a class="button button-primary" href="#daily-note">写下今日寄语 <span aria-hidden="true">↗</span></a><span class="hero-caption">保存在当前浏览器 · 无需登录</span></div>
+        <div class="orbit-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit-axis"></div><div class="level-core"><span>YOUR JOURNEY</span><strong>01</strong><span>START SMALL. LEVEL UP.</span></div><span class="orbit-point point-one"></span><span class="orbit-point point-two"></span><span class="art-label">A LITTLE BETTER, EVERY DAY</span></div>
+      </section>
+
+      <section class="stats-grid" aria-label="成长数据概览">
+        <article class="stat-card panel"><div class="stat-top"><span>进行中目标</span><span class="stat-icon" data-icon="target"></span></div><p class="stat-number"><span id="dashboard-goal-count">—</span> <small>个</small></p><p class="stat-caption" id="dashboard-goal-caption">正在读取目标</p></article>
+        <article class="stat-card panel"><div class="stat-top"><span>今日完成任务</span><span class="stat-icon" data-icon="check"></span></div><p class="stat-number"><span id="dashboard-task-count">—</span> <small>项</small></p><p class="stat-caption" id="dashboard-task-caption">正在读取任务</p></article>
+        <article class="stat-card panel"><div class="stat-top"><span>成长记录</span><span class="stat-icon" data-icon="book"></span></div><p class="stat-number"><span id="dashboard-journal-count">—</span> <small>篇</small></p><p class="stat-caption" id="dashboard-journal-caption">正在读取日志</p></article>
+        <article class="stat-card panel"><div class="stat-top"><span>近7天活跃</span><span class="stat-icon" data-icon="chart"></span></div><p class="stat-number"><span id="dashboard-active-days">—</span> <small>天</small></p><p class="stat-caption" id="dashboard-active-caption">正在读取活动记录</p></article>
+      </section>
+
+      <div class="dashboard-bottom">
+        <section class="panel note-panel" id="daily-note" aria-labelledby="note-title">
+          <div class="section-top"><div><p class="eyebrow">A NOTE TO YOURSELF</p><h2 id="note-title">给今天的自己</h2></div><span class="tiny-tag">本地保存</span></div>
+          <p class="muted note-intro">用一句话，记录今天想对自己说的话。</p>
+          <form id="note-form"><label class="sr-only" for="note-input">今日寄语（最多 200 字）</label><textarea id="note-input" maxlength="200" rows="3" placeholder="比如：今天先专注学习 20 分钟，慢一点也没关系。" aria-describedby="note-status"></textarea><div class="note-actions"><span id="note-count" class="muted">0 / 200</span><button type="submit" class="button button-primary">保存寄语 <span aria-hidden="true">↗</span></button></div></form>
+          <p id="note-status" class="save-status" role="status" aria-live="polite">尚未保存寄语</p>
+        </section>
+        <section class="panel roadmap-panel" aria-labelledby="roadmap-title"><div class="section-top"><div><p class="eyebrow">BUILT ONE STEP AT A TIME</p><h2 id="roadmap-title">接下来的旅程</h2></div><span class="step-counter">05 / 05</span></div><ol class="roadmap"><li><span class="roadmap-dot"></span><div><strong>基础框架</strong><p>Dashboard、导航与本地保存</p></div><span class="roadmap-state">已完成</span></li><li><span class="roadmap-dot"></span><div><strong>Goals · 目标管理</strong></div><a class="roadmap-state" href="pages/goals.html">去管理 ↗</a></li><li><span class="roadmap-dot"></span><div><strong>Tasks · 日常行动</strong></div><a class="roadmap-state" href="pages/tasks.html">去行动 ↗</a></li><li><span class="roadmap-dot"></span><div><strong>Journal · 成长日志</strong></div><a class="roadmap-state" href="pages/journal.html">去记录 ↗</a></li><li class="current"><span class="roadmap-dot"></span><div><strong>Analytics · 成长统计</strong></div><a class="roadmap-state" href="pages/analytics.html">去回顾 ↗</a></li></ol></section>
+      </div>
+      <div id="footer-root"></div>
+    </main>
+  </div>
+  <noscript><div class="noscript-message">请在浏览器中启用 JavaScript，以使用导航和本地保存功能。</div></noscript>
+</body>
+</html>

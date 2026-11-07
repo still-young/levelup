@@ -1,0 +1,10 @@
+# 临时验证文件不属于网站源码。
+work/
+outputs/
+LevelUp-backup-*.json
+.env
+.env.*
+!.env.example
+node_modules/
+.DS_Store
+Thumbs.db

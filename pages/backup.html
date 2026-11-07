@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backup · LevelUp</title>
+  <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/storage.js" defer></script>
+  <script src="../js/app.js" defer></script>
+  <script src="../js/backup.js" defer></script>
+</head>
+<body data-page="backup" data-root="..">
+  <a class="skip-link" href="#main-content">跳转到主要内容</a>
+  <div id="sidebar-root"></div>
+  <div class="workspace"><div id="header-root"></div>
+    <main id="main-content" tabindex="-1">
+      <section class="page-heading"><div><p class="eyebrow">BACKUP / KEEP YOUR JOURNEY</p><h1>把成长，好好留住。</h1><p class="muted">一份本地备份，带走你的目标、行动和成长记录。</p></div><span class="phase-badge"><span class="status-dot"></span> JSON · 本地文件</span></section>
+      <p id="backup-status" class="goals-status" role="status" aria-live="polite">备份包含寄语、目标、任务、日志，以及回收站记录。</p>
+      <div class="backup-layout">
+        <section class="panel backup-panel" aria-labelledby="export-title"><div class="placeholder-icon" data-icon="shield"></div><p class="eyebrow">TAKE A COPY WITH YOU</p><h2 id="export-title">导出当前数据</h2><p class="muted backup-intro">下载一份完整备份，在更换浏览器或设备时重新导入。</p><dl id="backup-current" class="backup-counts"></dl><button type="button" class="button button-primary" id="export-backup">下载备份文件 ↗</button><p class="field-hint">文件名含导出时间。请在浏览器下载列表中确认文件已保存。</p></section>
+        <section class="panel backup-panel" aria-labelledby="import-title"><p class="eyebrow">BRING YOUR JOURNEY BACK</p><h2 id="import-title">从备份恢复</h2><p class="muted backup-intro">先选择 LevelUp 导出的 JSON 文件，检查内容后再确认导入。文件只在浏览器内读取，不上传。</p><label class="backup-file-label" for="backup-file">选择备份文件（最大 10 MB）</label><input type="file" id="backup-file" accept=".json,application/json" aria-describedby="backup-file-status"><p class="field-hint" id="backup-file-status" role="status">尚未选择文件</p>
+          <section id="backup-preview" class="backup-preview" aria-labelledby="preview-title" hidden><h3 id="preview-title">导入预览</h3><p class="field-hint" id="backup-file-time"></p><div class="analytics-table-scroll"><table class="analytics-table"><caption>记录总数包含回收站</caption><thead><tr><th scope="col">内容</th><th scope="col">当前</th><th scope="col">备份中</th></tr></thead><tbody id="backup-compare"></tbody></table></div><p class="field-hint" id="backup-reference-hint"></p><p class="backup-replace-note">恢复会完整替换四类数据，包括寄语和回收站，不会合并记录。建议先下载当前备份。</p><label class="backup-check"><input type="checkbox" id="confirm-replace">我已核对，确认用此备份替换当前数据。</label><div class="goal-form-actions"><button type="button" class="button button-primary" id="import-backup" disabled>确认替换并导入</button><button type="button" class="button button-secondary" id="cancel-import">取消</button></div></section>
+        </section>
+      </div>
+      <section class="panel scope-note backup-undo" aria-labelledby="undo-title"><div><h2 id="undo-title">撤销最近一次导入</h2><p id="backup-undo-note">导入后尚未继续编辑时，可以撤销这次导入。</p></div><button type="button" class="button button-secondary" id="undo-import" disabled>撤销本次导入</button></section>
+      <section class="panel scope-note analytics-rules"><h2>关于这份备份</h2><p>备份只包含已保存的内容，不包含其他页面尚未保存的输入。文件是未加密的 JSON，包含你的完整文字，请妥善保管。它不是自动同步，也不会自动更新。</p><p>换浏览器、设备或预览地址时，可以导入同一份文件。导入成功后，刷新其他页面查看恢复结果。继续编辑任何记录后，撤销导入入口会关闭。</p></section>
+      <div id="footer-root"></div>
+    </main>
+  </div>
+  <noscript><div class="noscript-message">请启用 JavaScript，以使用本地备份。</div></noscript>
+</body>
+</html>

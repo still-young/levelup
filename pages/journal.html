@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Journal · LevelUp</title>
+  <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/storage.js" defer></script>
+  <script src="../js/journal-model.js" defer></script>
+  <script src="../js/app.js" defer></script>
+  <script src="../js/journal.js" defer></script>
+</head>
+<body data-page="journal" data-root="..">
+  <a class="skip-link" href="#main-content">跳转到主要内容</a>
+  <div id="sidebar-root"></div>
+  <div class="workspace">
+    <div id="header-root"></div>
+    <main id="main-content" tabindex="-1">
+      <section class="page-heading">
+        <div><p class="eyebrow">JOURNAL / LEAVE A LITTLE TRACE</p><h1>记录，正在成长的自己。</h1><p class="muted">让那些微小的变化，也有迹可循。</p></div>
+        <span class="phase-badge"><span class="status-dot"></span> PHASE 04 · 成长日志</span>
+      </section>
+      <section class="goal-summary" aria-label="日志统计">
+        <div class="panel"><span class="muted">成长记录</span><strong id="journal-total">—</strong></div>
+        <div class="panel"><span class="muted">记录天数</span><strong id="journal-days">—</strong></div>
+        <div class="panel"><span class="muted">今日记录</span><strong id="journal-today">—</strong></div>
+      </section>
+      <p id="journal-status" class="goals-status" role="status" aria-live="polite">日志只保存在当前浏览器。</p>
+      <div class="goals-layout">
+        <section class="panel goal-editor" aria-labelledby="journal-editor-title">
+          <p class="eyebrow">A MOMENT FOR YOURSELF</p><h2 id="journal-editor-title">写下一点今天</h2>
+          <p class="muted editor-intro">今天做了什么？有什么收获？也可以只记下一件小事。</p>
+          <form id="journal-form">
+            <div class="goal-form-row"><div><label for="entry-date">记录日期 <span class="accent">*</span></label><input type="date" id="entry-date" required min="0001-01-01" max="9999-12-31"></div><div><label for="entry-mood">此刻感受 <span class="muted">选填</span></label><select id="entry-mood"><option>未选择</option><option>开心</option><option>充实</option><option>平静</option><option>疲惫</option><option>低落</option></select></div></div>
+            <label for="entry-title">日志标题 <span class="accent">*</span></label><input id="entry-title" required maxlength="80" placeholder="例如：终于弄懂了一个 Java 知识点">
+            <label for="entry-content">日志正文 <span class="accent">*</span></label><textarea id="entry-content" class="journal-textarea" required maxlength="5000" rows="9" placeholder="今天的一小步、一个新发现，或想留给未来自己的话……" aria-describedby="entry-count"></textarea>
+            <p id="entry-count" class="field-hint">0 / 5000 · 手动保存后保留</p>
+            <p id="journal-form-error" class="form-error" role="alert"></p>
+            <div class="goal-form-actions"><button class="button button-primary" id="save-entry" type="submit">保存日志 ↗</button><button class="button button-secondary" id="cancel-entry-edit" type="button" hidden>取消编辑</button></div>
+            <p class="field-hint">同一天可以写多篇，也可以选择过去的日期补写。</p>
+          </form>
+        </section>
+        <section class="goals-collection" aria-labelledby="journal-list-title">
+          <div class="section-top"><div><p class="eyebrow">LOOK BACK, SEE GROWTH</p><h2 id="journal-list-title">我的成长足迹</h2></div><span class="tiny-tag">本地保存</span></div>
+          <div class="goal-filters" role="group" aria-label="筛选日志"><button class="filter-button active" data-journal-filter="all" aria-pressed="true">全部记录</button><button class="filter-button" data-journal-filter="today" aria-pressed="false">今日记录</button><button class="filter-button" data-journal-filter="trash" aria-pressed="false">回收站</button></div>
+          <div class="journal-search"><div><label for="journal-search">搜索标题或正文</label><input type="search" id="journal-search" placeholder="寻找某个小小的收获" maxlength="100"></div><div><label for="journal-date-filter">查看指定日期</label><input type="date" id="journal-date-filter" min="0001-01-01" max="9999-12-31"></div><button type="button" class="button button-secondary" id="clear-journal-search">清除条件</button></div>
+          <p class="muted list-caption" id="journal-list-caption" aria-live="polite"></p>
+          <div class="goal-list" id="journal-list"></div>
+        </section>
+      </div>
+      <div id="footer-root"></div>
+    </main>
+  </div>
+  <noscript><div class="noscript-message">请启用 JavaScript，以使用成长日志和本地保存。</div></noscript>
+</body>
+</html>

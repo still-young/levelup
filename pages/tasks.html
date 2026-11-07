@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks · LevelUp</title>
+  <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/storage.js" defer></script>
+  <script src="../js/tasks-model.js" defer></script>
+  <script src="../js/app.js" defer></script>
+  <script src="../js/tasks.js" defer></script>
+</head>
+<body data-page="tasks" data-root="..">
+  <a class="skip-link" href="#main-content">跳转到主要内容</a>
+  <div id="sidebar-root"></div>
+  <div class="workspace">
+    <div id="header-root"></div>
+    <main id="main-content" tabindex="-1">
+      <section class="page-heading">
+        <div><p class="eyebrow">TASKS / ONE SMALL STEP</p><h1>把想法，变成行动。</h1><p class="muted">每一件小事，都可以是向前的一步。</p></div>
+        <span class="phase-badge"><span class="status-dot"></span> PHASE 03 · 日常任务</span>
+      </section>
+      <section class="goal-summary" aria-label="任务统计">
+        <div class="panel"><span class="muted">待完成</span><strong id="tasks-active">—</strong></div>
+        <div class="panel"><span class="muted">今日计划</span><strong id="tasks-planned">—</strong></div>
+        <div class="panel"><span class="muted">今日完成</span><strong id="tasks-done">—</strong></div>
+      </section>
+      <p id="tasks-status" class="goals-status" role="status" aria-live="polite">任务只保存在当前浏览器。</p>
+      <div class="goals-layout">
+        <section class="panel goal-editor" aria-labelledby="task-editor-title">
+          <p class="eyebrow">LESS THINKING, MORE DOING</p><h2 id="task-editor-title">添加一项小任务</h2>
+          <p class="muted editor-intro">让目标变成具体行动，也可以只做一件独立的小事。</p>
+          <form id="task-form">
+            <label for="task-title">任务名称 <span class="accent">*</span></label>
+            <input id="task-title" required maxlength="80" placeholder="例如：完成一道 Java 练习">
+            <label for="task-description">任务说明 <span class="muted">选填 · 最多 500 字</span></label>
+            <textarea id="task-description" maxlength="500" rows="3" placeholder="写下这一步具体要做什么。"></textarea>
+            <label for="task-goal">关联目标 <span class="muted">选填</span></label>
+            <select id="task-goal" aria-describedby="task-goal-hint"><option value="">不关联目标</option></select>
+            <p class="field-hint" id="task-goal-hint">完成任务不会自动将目标标记为完成。</p>
+            <label for="task-date">计划日期 <span class="muted">选填</span></label>
+            <input type="date" id="task-date" min="0001-01-01" max="9999-12-31">
+            <p class="field-hint">留空表示暂未安排日期；不提供系统通知。</p>
+            <p id="task-form-error" class="form-error" role="alert"></p>
+            <div class="goal-form-actions"><button class="button button-primary" id="save-task" type="submit">保存任务 ↗</button><button class="button button-secondary" id="cancel-task-edit" type="button" hidden>取消编辑</button></div>
+          </form>
+        </section>
+        <section class="goals-collection" aria-labelledby="task-list-title">
+          <div class="section-top"><div><p class="eyebrow">SMALL ACTIONS, REAL PROGRESS</p><h2 id="task-list-title">我的任务</h2></div><span class="tiny-tag">本地保存</span></div>
+          <div class="goal-filters" role="group" aria-label="筛选任务"><button class="filter-button active" data-task-filter="all" aria-pressed="true">全部</button><button class="filter-button" data-task-filter="today" aria-pressed="false">今日计划</button><button class="filter-button" data-task-filter="active" aria-pressed="false">待完成</button><button class="filter-button" data-task-filter="completed" aria-pressed="false">已完成</button><button class="filter-button" data-task-filter="trash" aria-pressed="false">回收站</button></div>
+          <p class="muted list-caption" id="task-list-caption"></p>
+          <div class="goal-list" id="task-list"></div>
+          <p class="field-hint">“今日计划”按计划日期筛选；“今日完成”按实际完成日期统计。</p>
+        </section>
+      </div>
+      <div id="footer-root"></div>
+    </main>
+  </div>
+  <noscript><div class="noscript-message">请启用 JavaScript，以使用任务管理和本地保存。</div></noscript>
+</body>
+</html>

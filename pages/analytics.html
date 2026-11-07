@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics · LevelUp</title>
+  <link rel="icon" href="../assets/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/storage.js" defer></script>
+  <script src="../js/analytics-model.js" defer></script>
+  <script src="../js/app.js" defer></script>
+  <script src="../js/analytics.js" defer></script>
+</head>
+<body data-page="analytics" data-root="..">
+  <a class="skip-link" href="#main-content">跳转到主要内容</a>
+  <div id="sidebar-root"></div>
+  <div class="workspace">
+    <div id="header-root"></div>
+    <main id="main-content" tabindex="-1">
+      <section class="page-heading">
+        <div><p class="eyebrow">ANALYTICS / EVERY STEP COUNTS</p><h1>看见，一点点的变化。</h1><p class="muted">成长不必匆忙，记录会告诉你走了多远。</p></div>
+        <span class="phase-badge"><span class="status-dot"></span> PHASE 05 · 成长统计</span>
+      </section>
+      <div class="analytics-toolbar"><div><p class="eyebrow">YOUR GROWTH, IN NUMBERS</p><p id="analytics-range-label" class="muted">正在读取本地记录</p></div><div class="goal-filters" role="group" aria-label="统计时间范围"><button class="filter-button active" data-range="7" aria-pressed="true">最近 7 天</button><button class="filter-button" data-range="30" aria-pressed="false">最近 30 天</button><button class="filter-button" data-range="all" aria-pressed="false">全部记录</button></div></div>
+      <p id="analytics-status" class="goals-status" role="status" aria-live="polite">仅统计已保存记录，回收站不参与统计。</p>
+      <section class="stats-grid" aria-label="成长统计概览">
+        <article class="panel stat-card"><div class="stat-top"><span>完成任务</span><span class="stat-icon" data-icon="check"></span></div><p class="stat-number"><span id="analytics-tasks">—</span> <small>项</small></p><p class="stat-caption">所选时间内实际完成</p></article>
+        <article class="panel stat-card"><div class="stat-top"><span>成长日志</span><span class="stat-icon" data-icon="book"></span></div><p class="stat-number"><span id="analytics-journal">—</span> <small>篇</small></p><p class="stat-caption">按日志的记录日期</p></article>
+        <article class="panel stat-card"><div class="stat-top"><span>活跃天数</span><span class="stat-icon" data-icon="chart"></span></div><p class="stat-number"><span id="analytics-active">—</span> <small>天</small></p><p class="stat-caption">有任务完成或日志记录的日期</p></article>
+        <article class="panel stat-card"><div class="stat-top"><span>目标完成率</span><span class="stat-icon" data-icon="target"></span></div><p class="stat-number" id="analytics-goal-rate">—</p><p class="stat-caption" id="analytics-goal-caption">当前全部目标，不受时间筛选影响</p></article>
+      </section>
+      <div class="analytics-layout">
+        <section class="panel analytics-panel" aria-labelledby="activity-title"><div class="section-top"><div><p class="eyebrow">SMALL STEPS OVER TIME</p><h2 id="activity-title">行动与记录</h2></div><div class="chart-legend"><span><i class="legend-task"></i>完成任务</span><span><i class="legend-journal"></i>日志</span></div></div><p id="analytics-chart-note" class="field-hint">按日展示</p><p class="analytics-empty" id="analytics-chart-message" hidden></p><figure id="analytics-figure" aria-labelledby="activity-title" aria-describedby="analytics-chart-note"><div class="chart-scroll" tabindex="0" aria-label="任务与日志趋势图，可横向滚动"><div id="activity-chart" class="activity-chart"></div></div></figure><details id="analytics-detail" class="analytics-detail"><summary>查看详细数据表</summary><div class="analytics-table-scroll"><table class="analytics-table"><caption>与趋势图相同的统计数据</caption><thead><tr><th scope="col">日期 / 月份</th><th scope="col">完成任务（项）</th><th scope="col">日志（篇）</th></tr></thead><tbody id="analytics-table-body"></tbody></table></div></details></section>
+        <section class="panel analytics-panel" aria-labelledby="goal-progress-title"><p class="eyebrow">CURRENT GOAL STATUS</p><h2 id="goal-progress-title">目标完成情况</h2><p class="field-hint">当前全部目标的状态，不受上方时间筛选影响。</p><div class="goal-progress-overview"><strong id="goal-progress-completed">—</strong><span id="goal-progress-total" class="muted">正在读取</span></div><div id="goal-category-progress"></div><a class="button button-secondary analytics-goal-link" href="goals.html">管理我的目标 ↗</a></section>
+      </div>
+      <section class="panel scope-note analytics-rules" aria-labelledby="analytics-rules-title"><h2 id="analytics-rules-title">这些数字如何计算？</h2><p>任务按实际完成日期统计，重新开启后不再计入已完成；日志按你选择的记录日期统计。活跃天数将两者的日期合并去重。日期使用当前设备时区，未来日期和回收站记录不计入活动趋势。</p><p>目标完成率表示当前状态，没有历史快照。最近 7 天和 30 天均包含今天；全部记录按有记录的月份汇总，空月份不列出。这里只做汇总，不会改写你的数据。</p></section>
+      <div id="footer-root"></div>
+    </main>
+  </div>
+  <noscript><div class="noscript-message">请启用 JavaScript，以查看本地成长统计。</div></noscript>
+</body>
+</html>
